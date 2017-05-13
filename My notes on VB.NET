@@ -1,0 +1,30 @@
+What you can do (basics)
+MessageBox.Show("Text", "Title") OR (1+1 etc --> Calculator)
+  Will be triggered by a button e.g. when added to the code with a double click on the item
+
+Define a variable:  Dim [Name of var.] As String = "txt"
+                    Dim [Name of var.] As Integer = Nr.
+--> can be used to store larger stuff in a code word and call it by that
+
+If / then:  If TextBox1.Text = "xy" then
+               Label1.Text = "zy"
+            End if
+            
+            If X then
+              Action            ==> Wenn der erste Schritt schon zutrifft, wird der zweite nicht mehr angeschaut.
+            Elseif x then       ==> Falls ein Entweder/Oder gewünscht ist, dann zwei separate If/Then machen
+              action
+            endif
+
+Count with a progress bar: ProgressBar1.Value=ProgressBar1.Value + 1
+
+Add to a listbox: (Tools needed: Textbox, Button, Listbox)
+            Listbox.Items.Add (TextBox1.text)
+            --> Adds what's in the Textbox to a list
+
+Auswahlbuttons (RadioButtons) in Kombination mit Button und Messagebox
+            If Radiobutton1.checked = true then
+              MessageBox.show("txt")
+            Elseif Radiobutton2.checked = True then
+              MessageBox.show("txt")
+            Endif
