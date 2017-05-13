@@ -1,0 +1,65 @@
+Public Class Form1
+
+    Private Sub TextBox1_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox1.TextChanged
+        If TextBox1.Text = 3 Then
+            MessageBox.Show("Pause")
+        End If
+        If TextBox1.Text = 4 Then
+            MessageBox.Show("Start")
+        End If
+        If TextBox1.Text = 6 Then
+            MessageBox.Show("Pause")
+        End If
+        If TextBox1.Text = 7 Then
+            MessageBox.Show("Start")
+        End If
+        If TextBox1.Text = 9 Then
+            MessageBox.Show("Pause")
+        End If
+        If TextBox1.Text = 10 Then
+            MessageBox.Show("Start")
+        End If
+        If TextBox1.Text = 12 Then
+            MessageBox.Show("Pause")
+        End If
+        If TextBox1.Text = 13 Then
+            MessageBox.Show("Start")
+        End If
+        If TextBox1.Text = 15 Then
+            MessageBox.Show("Pause")
+        End If
+        If TextBox1.Text = 16 Then
+            MessageBox.Show("Start")
+        End If
+        If TextBox1.Text = 18 Then
+            MessageBox.Show("Pause")
+        End If
+        If TextBox1.Text = 19 Then
+            MessageBox.Show("Start")
+        End If
+        If TextBox1.Text = 21 Then
+            MessageBox.Show("Pause")
+        End If
+        If TextBox1.Text = 22 Then
+            MessageBox.Show("Start")
+        End If
+        If TextBox1.Text = 24 Then
+            MessageBox.Show("END")
+        End If
+    End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        Timer1.Start()
+
+    End Sub
+
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+        Timer1.Stop()
+
+    End Sub
+
+    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
+        TextBox1.Text = TextBox1.Text + 1
+        
+    End Sub
+End Class
