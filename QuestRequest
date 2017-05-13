@@ -1,0 +1,25 @@
+Public Class Form1
+    
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        If MessageBox.Show("You find yourself infront of a door. Do you want to enter?", "Starting an adventure.", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes Then
+            If MessageBox.Show("You find an empty cavern. Want to look around?", "You opened the door", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes Then
+                If MessageBox.Show("You find some green glass shards. Do you want to keep them?", "You are looking around.", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes Then
+                    MessageBox.Show("You take the shard, you cut yourself, you'll die from blood poisoning in ten days. THE END.", "Game over")
+                Else : MessageBox.Show("Good. The shards were very sharp and poisoned. You'll live happily ever after. THE END.", "You did act carefully", MessageBoxButtons.OK)
+                End If
+            Else : MessageBox.Show("Then why did you enter in the first place?", "You refuse to do something.", MessageBoxButtons.OK)
+            End If
+        Else
+            MessageBox.Show("You still stand infront of the door. This is not how adventuring works!", "You didn't enter.", MessageBoxButtons.OK)
+        End If
+
+    End Sub
+
+    Private Sub TextBox1_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox1.TextChanged
+
+    End Sub
+
+    Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+    End Sub
+End Class
