@@ -1,4 +1,10 @@
-What you can do (basics)
+'Started VB 2008 2017/05/01
+'=================================
+'Sources: Howtostartprogramming.com
+'=================================
+
+'What you can do (basics)
+'=================================
 MessageBox.Show("Text", "Title") OR (1+1 etc --> Calculator)
   Will be triggered by a button e.g. when added to the code with a double click on the item
 
