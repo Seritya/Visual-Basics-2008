@@ -1,36 +1,115 @@
 'Started VB 2008 2017/05/01
-'=================================
+'===================================
 'Sources: Howtostartprogramming.com
-'=================================
+'===================================
 
-'What you can do (basics)
-'=================================
-MessageBox.Show("Text", "Title") OR (1+1 etc --> Calculator)
+Basics
+========================
+= MessageBox.Show("Text", "Title", MessageBoxButtons.x, MessageBoxIcon.x) OR (1+1 etc --> Calculator)
   Will be triggered by a button e.g. when added to the code with a double click on the item
 
-Define a variable:  Dim [Name of var.] As String = "txt"
-                    Dim [Name of var.] As Integer = Nr.
---> can be used to store larger stuff in a code word and call it by that
+= Count with a progress bar: ProgressBar1.Value=ProgressBar1.Value + 1
 
-If / then:  If TextBox1.Text = "xy" then
-               Label1.Text = "zy"
-            End if
-            
-            If X then
-              Action            ==> Wenn der erste Schritt schon zutrifft, wird der zweite nicht mehr angeschaut.
-            Elseif x then       ==> Falls ein Entweder/Oder gewünscht ist, dann zwei separate If/Then machen
-              action
-            endif
-
-Count with a progress bar: ProgressBar1.Value=ProgressBar1.Value + 1
-
-Add to a listbox: (Tools needed: Textbox, Button, Listbox)
+= Add to a listbox: (Tools needed: Textbox, Button, Listbox)
             Listbox.Items.Add (TextBox1.text)
             --> Adds what's in the Textbox to a list
 
-Auswahlbuttons (RadioButtons) in Kombination mit Button und Messagebox
+= Add Menustrip (Datei, Help usw.) via Toolbox and commands on the strip via dropdown.
+  Actions are added with double click on the command (as usual)
+  
+= code for closing the application: me.close()
+
+= Add new form: top right "Solution Explorer" --> right click on project / add / WindowsForm
+
+= Text-to-speak: Dim SAPI
+                 SAPI=CreateObject("SAPI.spvoice")
+                 SAPI.Speak(Textbox1.text)
+                 SAPI.Speak("xy")
+              
+= Integrate variable in Text with &: ("The amount is" & x)
+
+= Passwords in Textboxes as *** : Properties PasswordChar= *
+
+= F5 kompiliert das Programm --> .exe
+
+= Start exe: Process.start("C:\file.exe")
+
+Varibales and Calls:
+====================
+= Define a variable:  Dim [Name of var.] As String = "txt"
+                      Dim [Name of var.] As Integer = Nr.
+  --> can be used to store larger stuff in a code word and call it by that
+
+= Store code and call by that name (zw. "public class form" und "private sub")
+                      Sub [Name of code]()
+                        Inhalt des Codes
+                      End Sub
+                
+                  --> Call [Name of code]()
+
+If/Then/Elseif:
+===============
+= If / then:  If TextBox1.Text = "xy" then
+               Label1.Text = "zy"
+              End if
+            
+= Elseif      If X then
+                Action            | Wenn der erste Schritt schon zutrifft, wird der zweite nicht mehr angeschaut.
+              Elseif x then       | Falls ein Entweder/Oder gewünscht ist, dann zwei separate If/Then machen
+                action            | Else = in jedem anderen Fall
+              endif               | Elseif = in einem bestimmten anderen Fall
+  
+= Add If based on a decision on a MessageBox: Windows.Forms.dialog.Result.yes then xy
+
+Loops:
+======
+= Loop: dim x as Integer = 0
+        for x = 0 to 10
+        Messagebox.Show("The value of x is:" & x)
+
+= Do while: dim x as Integer = 0
+            Do while x < oder = Zahl (kann auch hier stehen*)
+            Messagebox.Show("The value of x is:" & x)
+            *
+            Loop
+            
+= Do until: dim x as Integer = 0
+            Do until x >, < oder = Zahl (kann auch hier stehen*)      | Will run forever if number is not reached exactly
+            Messagebox.Show("The value of x is:" & x)
+            *
+            Loop
+
+Listen und Knöpfe:
+==================
+ = Auswahlbuttons (RadioButtons) in Kombination mit Submit-Button und Messagebox.Show
             If Radiobutton1.checked = true then
               MessageBox.show("txt")
             Elseif Radiobutton2.checked = True then
               MessageBox.show("txt")
+            Endif  
+ = Checkboxes (mehrere anwählbar) in Kombination mit Submit-Button und Messagebox.Show
+            If Checkbox2.checked = true then
+              MessageBox.show("txt")
             Endif
+            If Checkbox2.checked = True then
+              MessageBox.show("txt")
+            Endif  
+            
+Timers:
+=======
+ = Timer surface:
+    - Timer, Textbox, 2 Buttons
+    - Textbox Text "1" (via properties)
+    - Interval wird über Properties gesteuert, nicht über Code
+    ---> Interval 1000 = 1 sek
+    - oder über TextBox-Eingabe: Timer1.Interval = Textbox2
+    - Code:
+        auf Timer: TextBox1.text = TextBox1.text + 1
+        auf Buttons: Timer1.start / timer1.stop
+        
+
+Webbrowser:
+===========
+ = Add over Toolbox
+ =  webbrowser1.navigate (Textbox1.text[URL])
+    webbrowser1.goback/.refresh/.goforward
