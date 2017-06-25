@@ -44,9 +44,9 @@ Public Class Form1
     Dim PassivSekunden As Integer = tbPassiv.Text * 1000
     Private Sub rbpassek_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbpassek.CheckedChanged
         If rbpassmin.Checked = True Then
-            Timer2.Interval = PassivMinuten * 60000
+            Timer2.Interval = PassivMinuten
         ElseIf rbpassek.Checked = True Then
-            Timer2.Interval = PassivSekunden * 1000
+            Timer2.Interval = PassivSekunden
         End If
     End Sub
     'Zähler und Umschaltung aktiv/passiv
