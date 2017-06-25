@@ -1,0 +1,71 @@
+'NOT FUNCTIONAL YET
+
+Public Class Form1
+
+    Private Sub btnStart_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnStart.Click
+        Timer1.Start()
+        tbPhase.Text = "Aktiv"
+    End Sub
+
+    Private Sub btnStop_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnStop.Click
+        Timer1.Stop()
+        Timer2.Stop()
+        tbPhase.Clear()
+    End Sub
+
+    ' Resetbutton
+    Private Sub Reset_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Reset.Click
+        tbZähler.Text = "0"
+        tbAktiv.Clear()
+        tbPassiv.Clear()
+        tbWiederh.Clear()
+    End Sub
+    ' Timer für aktive Phase
+    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
+        tbZähler.Text = tbZähler.Text + 1
+    End Sub
+    ' Minuten und Sekunden Aktiv
+    Dim AktivMinuten As Integer = tbAktiv.Text * 60000
+    Dim AktivSekunden As Integer = tbAktiv.Text * 1000
+
+    Private Sub rbaktsek_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbaktsek.CheckedChanged
+        If rbaktmin.Checked = True Then
+            Timer1.Interval = AktivMinuten
+        ElseIf rbaktsek.Checked = True Then
+            Timer1.Interval = AktivSekunden
+        End If
+    End Sub
+    ' Timer für passive Phase
+    Private Sub Timer2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer2.Tick
+        tbZähler.Text = tbZähler.Text + 1
+    End Sub
+    ' Minuten und Sekunden Passiv
+    Dim PassivMinuten As Integer = tbPassiv.Text * 60000
+    Dim PassivSekunden As Integer = tbPassiv.Text * 1000
+    Private Sub rbpassek_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbpassek.CheckedChanged
+        If rbpassmin.Checked = True Then
+            Timer2.Interval = PassivMinuten * 60000
+        ElseIf rbpassek.Checked = True Then
+            Timer2.Interval = PassivSekunden * 1000
+        End If
+    End Sub
+    'Zähler und Umschaltung aktiv/passiv
+    Private Sub tbZähler_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tbZähler.TextChanged
+        If tbPhase.Text = "Aktiv" Then
+            If tbZähler.Text = tbAktiv.Text Then
+                tbZähler.Text = 0
+                tbPhase.Text = "Pause"
+                Timer1.Stop()
+                Timer2.Start()
+            End If
+        ElseIf tbPhase.Text = "Pause" Then
+            If tbZähler.Text = tbPassiv.Text Then
+                tbZähler.Text = 0
+                tbPhase.Text = "Aktiv"
+                Timer2.Stop()
+                Timer1.Start()
+            End If
+        End If
+    End Sub
+
+End Class
