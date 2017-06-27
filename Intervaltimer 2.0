@@ -1,0 +1,65 @@
+Public Class Form1
+
+    Private Sub btnStart_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnStart.Click
+        Timer1.Start()
+        tbPhase.Text = "Aktiv"
+    End Sub
+
+    Private Sub btnStop_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnStop.Click
+        Timer1.Stop()
+        Timer2.Stop()
+        tbPhase.Clear()
+    End Sub
+
+    ' Resetbutton
+    Private Sub Reset_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Reset.Click
+        tbZählerm.Text = "0"
+        tbZählers.Text = "0"
+        tbAktivm.Text = "0"
+        tbAktivs.Text = "0"
+        tbPassivm.Text = "0"
+        tbPassivs.Text = "0"
+        tbWiederh.Text = "0"
+    End Sub
+    ' Zähler Minuten und Sekunden
+    Private Sub tbZählers_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tbZählers.TextChanged
+        If tbZählers.Text = "60" Then
+            tbZählers.Text = "0"
+            tbZählerm.Text = tbZählerm.Text + 1
+        End If
+        
+        'Zähler und Umschaltung aktiv/passiv
+        If tbPhase.Text = "Aktiv" Then
+            If tbZählers.Text = tbAktivs.Text AndAlso tbZählerm.Text = tbAktivm.Text Then
+                tbZählers.Text = 0
+                tbZählerm.Text = 0
+                tbPhase.Text = "Pause"
+                Timer1.Stop()
+                Timer2.Start()
+            End If
+        ElseIf tbPhase.Text = "Pause" Then
+            If tbZählers.Text = tbPassivs.Text AndAlso tbZählerm.Text = tbPassivm.Text Then
+                tbZählers.Text = 0
+                tbZählerm.Text = 0
+                tbPhase.Text = "Aktiv"
+                Timer2.Stop()
+                Timer1.Start()
+                tbWiederh.Text = tbWiederh.Text + 1
+            End If
+        End If
+    End Sub
+    ' Timer für aktive Phase
+    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
+        tbZählers.Text = tbZählers.Text + 1
+        Timer1.Interval = 1000
+    End Sub
+    ' Timer für passive Phase
+    Private Sub Timer2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer2.Tick
+        tbZählers.Text = tbZählers.Text + 1
+        Timer2.Interval = 1000
+    End Sub
+
+
+    
+End Class
+
