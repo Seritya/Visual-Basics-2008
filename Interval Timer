@@ -1,5 +1,3 @@
-'NOT FUNCTIONAL YET
-
 Public Class Form1
 
     Private Sub btnStart_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnStart.Click
@@ -25,30 +23,28 @@ Public Class Form1
         tbZähler.Text = tbZähler.Text + 1
     End Sub
     ' Minuten und Sekunden Aktiv
-    Dim AktivMinuten As Integer = tbAktiv.Text * 60000
-    Dim AktivSekunden As Integer = tbAktiv.Text * 1000
-
     Private Sub rbaktsek_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbaktsek.CheckedChanged
         If rbaktmin.Checked = True Then
-            Timer1.Interval = AktivMinuten
+            Timer1.Interval = 60000
         ElseIf rbaktsek.Checked = True Then
-            Timer1.Interval = AktivSekunden
+            Timer1.Interval = 1000
         End If
     End Sub
     ' Timer für passive Phase
     Private Sub Timer2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer2.Tick
         tbZähler.Text = tbZähler.Text + 1
     End Sub
+
     ' Minuten und Sekunden Passiv
-    Dim PassivMinuten As Integer = tbPassiv.Text * 60000
-    Dim PassivSekunden As Integer = tbPassiv.Text * 1000
     Private Sub rbpassek_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbpassek.CheckedChanged
         If rbpassmin.Checked = True Then
-            Timer2.Interval = PassivMinuten
+            Timer2.Interval = 60000
         ElseIf rbpassek.Checked = True Then
-            Timer2.Interval = PassivSekunden
+            Timer2.Interval = 1000
         End If
     End Sub
+    'Funktional bis hier
+
     'Zähler und Umschaltung aktiv/passiv
     Private Sub tbZähler_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tbZähler.TextChanged
         If tbPhase.Text = "Aktiv" Then
@@ -64,6 +60,7 @@ Public Class Form1
                 tbPhase.Text = "Aktiv"
                 Timer2.Stop()
                 Timer1.Start()
+                tbWiederh.Text = tbWiederh.Text + 1
             End If
         End If
     End Sub
