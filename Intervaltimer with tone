@@ -1,0 +1,89 @@
+Public Class Form1
+    Sub PlayRingtone()
+        If rbSignal1.Checked = True Then
+            My.Computer.Audio.Play(My.Resources.Ring10, AudioPlayMode.Background)
+        ElseIf rbSignal2.Checked = True Then
+            My.Computer.Audio.Play(My.Resources.Windows_Critical_Stop, AudioPlayMode.Background)
+        ElseIf rbSignal3.Checked = True Then
+            My.Computer.Audio.Play(My.Resources.Windows_Hardware_Fail, AudioPlayMode.Background)
+        ElseIf rbSignal4.Checked = True Then
+            My.Computer.Audio.Play(My.Resources.Windows_Unlock, AudioPlayMode.Background)
+        End If
+    End Sub
+    Private Sub (ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnStart.Click
+        Timer1.Start()
+        tbPhase.Text = "Aktiv"
+    End Sub
+
+    Private Sub btnStop_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnStop.Click
+        Timer1.Stop()
+        Timer2.Stop()
+        tbPhase.Clear()
+    End Sub
+
+    ' Resetbutton
+    Private Sub Reset_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Reset.Click
+        tbZählerm.Text = "0"
+        tbZählers.Text = "0"
+        tbAktivm.TebtnStart_Clickxt = "0"
+        tbAktivs.Text = "0"
+        tbPassivm.Text = "0"
+        tbPassivs.Text = "0"
+        tbZählerw.Text = "0"
+    End Sub
+    ' Zähler Minuten und Sekunden
+    Private Sub tbZählers_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tbZählers.TextChanged
+        If tbZählers.Text = "60" Then
+            tbZählers.Text = "0"
+            tbZählerm.Text = tbZählerm.Text + 1
+        End If
+
+        'Zähler und Umschaltung aktiv/passiv
+        If tbPhase.Text = "Aktiv" Then
+            If tbZählers.Text = tbAktivs.Text AndAlso tbZählerm.Text = tbAktivm.Text Then
+                tbZählers.Text = 0
+                tbZählerm.Text = 0
+                tbPhase.Text = "Pause"
+                PlayRingtone()
+                Timer1.Stop()
+                Timer2.Start()
+            End If
+        ElseIf tbPhase.Text = "Pause" Then
+            If tbZählers.Text = tbPassivs.Text AndAlso tbZählerm.Text = tbPassivm.Text Then
+                tbZählers.Text = 0
+                tbZählerm.Text = 0
+                tbPhase.Text = "Aktiv"
+                PlayRingtone()
+                Timer2.Stop()
+                Timer1.Start()
+                tbZählerw.Text = tbZählerw.Text + 1
+            End If
+        End If
+    End Sub
+    ' Timer für aktive Phase
+    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
+        tbZählers.Text = tbZählers.Text + 1
+        Timer1.Interval = 1000
+    End Sub
+    ' Timer für passive Phase
+    Private Sub Timer2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer2.Tick
+        tbZählers.Text = tbZählers.Text + 1
+        Timer2.Interval = 1000
+    End Sub
+
+    ' Anzahl Wiederholungen
+    Private Sub tbWiederh_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tbZählerw.TextChanged
+        If tbZählerw.Text = tbWiederh.Text Then
+            Timer1.Stop()
+            Timer2.Stop()
+            MessageBox.Show("Ende des Intervalls")
+        End If
+    End Sub
+    Private Sub Label_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+    End Sub
+
+    Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+    End Sub
+End Class
