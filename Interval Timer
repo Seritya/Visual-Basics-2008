@@ -66,3 +66,280 @@ Public Class Form1
     End Sub
 
 End Class
+
+'==============================================================================================================
+' Code behind Form1
+
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class Form1
+    Inherits System.Windows.Forms.Form
+
+    'Das Formular überschreibt den Löschvorgang, um die Komponentenliste zu bereinigen.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Wird vom Windows Form-Designer benötigt.
+    Private components As System.ComponentModel.IContainer
+
+    'Hinweis: Die folgende Prozedur ist für den Windows Form-Designer erforderlich.
+    'Das Bearbeiten ist mit dem Windows Form-Designer möglich.  
+    'Das Bearbeiten mit dem Code-Editor ist nicht möglich.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container
+        Me.btnStart = New System.Windows.Forms.Button
+        Me.btnStop = New System.Windows.Forms.Button
+        Me.tbAktiv = New System.Windows.Forms.TextBox
+        Me.tbPassiv = New System.Windows.Forms.TextBox
+        Me.tbWiederh = New System.Windows.Forms.TextBox
+        Me.Label1 = New System.Windows.Forms.Label
+        Me.Label2 = New System.Windows.Forms.Label
+        Me.Label = New System.Windows.Forms.Label
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Label3 = New System.Windows.Forms.Label
+        Me.tbZähler = New System.Windows.Forms.TextBox
+        Me.Reset = New System.Windows.Forms.Button
+        Me.rbaktsek = New System.Windows.Forms.RadioButton
+        Me.rbaktmin = New System.Windows.Forms.RadioButton
+        Me.rbpassmin = New System.Windows.Forms.RadioButton
+        Me.rbpassek = New System.Windows.Forms.RadioButton
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox
+        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
+        Me.tbPhase = New System.Windows.Forms.TextBox
+        Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
+        Me.SuspendLayout()
+        '
+        'btnStart
+        '
+        Me.btnStart.Location = New System.Drawing.Point(12, 236)
+        Me.btnStart.Name = "btnStart"
+        Me.btnStart.Size = New System.Drawing.Size(80, 28)
+        Me.btnStart.TabIndex = 0
+        Me.btnStart.Text = "Start"
+        Me.btnStart.UseVisualStyleBackColor = True
+        '
+        'btnStop
+        '
+        Me.btnStop.Location = New System.Drawing.Point(103, 236)
+        Me.btnStop.Name = "btnStop"
+        Me.btnStop.Size = New System.Drawing.Size(80, 28)
+        Me.btnStop.TabIndex = 1
+        Me.btnStop.Text = "Stop"
+        Me.btnStop.UseVisualStyleBackColor = True
+        '
+        'tbAktiv
+        '
+        Me.tbAktiv.Location = New System.Drawing.Point(73, 29)
+        Me.tbAktiv.Name = "tbAktiv"
+        Me.tbAktiv.Size = New System.Drawing.Size(96, 20)
+        Me.tbAktiv.TabIndex = 2
+        '
+        'tbPassiv
+        '
+        Me.tbPassiv.Location = New System.Drawing.Point(73, 30)
+        Me.tbPassiv.Name = "tbPassiv"
+        Me.tbPassiv.Size = New System.Drawing.Size(96, 20)
+        Me.tbPassiv.TabIndex = 3
+        '
+        'tbWiederh
+        '
+        Me.tbWiederh.Location = New System.Drawing.Point(135, 155)
+        Me.tbWiederh.Name = "tbWiederh"
+        Me.tbWiederh.Size = New System.Drawing.Size(141, 20)
+        Me.tbWiederh.TabIndex = 4
+        Me.tbWiederh.Text = "0"
+        Me.tbWiederh.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label1
+        '
+        Me.Label1.Location = New System.Drawing.Point(6, 30)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(61, 19)
+        Me.Label1.TabIndex = 5
+        Me.Label1.Text = "Dauer"
+        '
+        'Label2
+        '
+        Me.Label2.Location = New System.Drawing.Point(6, 33)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(68, 19)
+        Me.Label2.TabIndex = 6
+        Me.Label2.Text = "Dauer"
+        '
+        'Label
+        '
+        Me.Label.Location = New System.Drawing.Point(12, 155)
+        Me.Label.Name = "Label"
+        Me.Label.Size = New System.Drawing.Size(85, 19)
+        Me.Label.TabIndex = 7
+        Me.Label.Text = "Wiederholungen"
+        '
+        'Timer1
+        '
+        Me.Timer1.Interval = 1000
+        '
+        'Label3
+        '
+        Me.Label3.Location = New System.Drawing.Point(12, 204)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(85, 19)
+        Me.Label3.TabIndex = 9
+        Me.Label3.Text = "Zähler"
+        '
+        'tbZähler
+        '
+        Me.tbZähler.Location = New System.Drawing.Point(135, 201)
+        Me.tbZähler.Name = "tbZähler"
+        Me.tbZähler.Size = New System.Drawing.Size(138, 20)
+        Me.tbZähler.TabIndex = 8
+        Me.tbZähler.Text = "0"
+        Me.tbZähler.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Reset
+        '
+        Me.Reset.Location = New System.Drawing.Point(192, 236)
+        Me.Reset.Name = "Reset"
+        Me.Reset.Size = New System.Drawing.Size(80, 28)
+        Me.Reset.TabIndex = 10
+        Me.Reset.Text = "Reset"
+        Me.Reset.UseVisualStyleBackColor = True
+        '
+        'rbaktsek
+        '
+        Me.rbaktsek.AutoSize = True
+        Me.rbaktsek.Checked = True
+        Me.rbaktsek.Location = New System.Drawing.Point(190, 19)
+        Me.rbaktsek.Name = "rbaktsek"
+        Me.rbaktsek.Size = New System.Drawing.Size(74, 17)
+        Me.rbaktsek.TabIndex = 11
+        Me.rbaktsek.TabStop = True
+        Me.rbaktsek.Text = "Sekunden"
+        Me.rbaktsek.UseVisualStyleBackColor = True
+        '
+        'rbaktmin
+        '
+        Me.rbaktmin.AutoSize = True
+        Me.rbaktmin.Location = New System.Drawing.Point(190, 36)
+        Me.rbaktmin.Name = "rbaktmin"
+        Me.rbaktmin.Size = New System.Drawing.Size(63, 17)
+        Me.rbaktmin.TabIndex = 12
+        Me.rbaktmin.Text = "Minuten"
+        Me.rbaktmin.UseVisualStyleBackColor = True
+        '
+        'rbpassmin
+        '
+        Me.rbpassmin.AutoSize = True
+        Me.rbpassmin.Location = New System.Drawing.Point(190, 40)
+        Me.rbpassmin.Name = "rbpassmin"
+        Me.rbpassmin.Size = New System.Drawing.Size(63, 17)
+        Me.rbpassmin.TabIndex = 14
+        Me.rbpassmin.Text = "Minuten"
+        Me.rbpassmin.UseVisualStyleBackColor = True
+        '
+        'rbpassek
+        '
+        Me.rbpassek.AutoSize = True
+        Me.rbpassek.Checked = True
+        Me.rbpassek.Location = New System.Drawing.Point(190, 19)
+        Me.rbpassek.Name = "rbpassek"
+        Me.rbpassek.Size = New System.Drawing.Size(74, 17)
+        Me.rbpassek.TabIndex = 13
+        Me.rbpassek.TabStop = True
+        Me.rbpassek.Text = "Sekunden"
+        Me.rbpassek.UseVisualStyleBackColor = True
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.Controls.Add(Me.tbAktiv)
+        Me.GroupBox1.Controls.Add(Me.rbaktsek)
+        Me.GroupBox1.Controls.Add(Me.rbaktmin)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 13)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(267, 59)
+        Me.GroupBox1.TabIndex = 15
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Aktive Phase"
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.rbpassek)
+        Me.GroupBox2.Controls.Add(Me.tbPassiv)
+        Me.GroupBox2.Controls.Add(Me.rbpassmin)
+        Me.GroupBox2.Controls.Add(Me.Label2)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 81)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(267, 61)
+        Me.GroupBox2.TabIndex = 16
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Passive Phase"
+        '
+        'Timer2
+        '
+        '
+        'tbPhase
+        '
+        Me.tbPhase.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbPhase.Location = New System.Drawing.Point(56, 277)
+        Me.tbPhase.Name = "tbPhase"
+        Me.tbPhase.Size = New System.Drawing.Size(184, 26)
+        Me.tbPhase.TabIndex = 17
+        Me.tbPhase.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Form1
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(289, 317)
+        Me.Controls.Add(Me.tbPhase)
+        Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.Reset)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.tbZähler)
+        Me.Controls.Add(Me.Label)
+        Me.Controls.Add(Me.tbWiederh)
+        Me.Controls.Add(Me.btnStop)
+        Me.Controls.Add(Me.btnStart)
+        Me.Name = "Form1"
+        Me.Text = "Intervalltimer"
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
+    End Sub
+    Friend WithEvents btnStart As System.Windows.Forms.Button
+    Friend WithEvents btnStop As System.Windows.Forms.Button
+    Friend WithEvents tbAktiv As System.Windows.Forms.TextBox
+    Friend WithEvents tbPassiv As System.Windows.Forms.TextBox
+    Friend WithEvents tbWiederh As System.Windows.Forms.TextBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Label As System.Windows.Forms.Label
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents tbZähler As System.Windows.Forms.TextBox
+    Friend WithEvents Reset As System.Windows.Forms.Button
+    Friend WithEvents rbaktsek As System.Windows.Forms.RadioButton
+    Friend WithEvents rbaktmin As System.Windows.Forms.RadioButton
+    Friend WithEvents rbpassmin As System.Windows.Forms.RadioButton
+    Friend WithEvents rbpassek As System.Windows.Forms.RadioButton
+    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
+    Friend WithEvents Timer2 As System.Windows.Forms.Timer
+    Friend WithEvents tbPhase As System.Windows.Forms.TextBox
+
+End Class
